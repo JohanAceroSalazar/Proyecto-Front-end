@@ -3,6 +3,7 @@ import "./Register.css";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
 import { registerUser } from "../../services/authService";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 function Register() {
     const [form, setForm] = useState({
@@ -12,6 +13,7 @@ function Register() {
     });
 
     const [message, setMessage] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleChange = (e) => {
         setForm({
@@ -37,9 +39,9 @@ function Register() {
 
         try {
             await registerUser(form);
-            setMessage("Registro exitoso ✅");
+            setMessage("Registro exitoso");
         } catch (error) {
-            setMessage(error.message || "Error en el registro ❌");
+            setMessage(error.message || "Error en el registro");
         }
     };
 
@@ -54,10 +56,23 @@ function Register() {
                 <Input name="name" placeholder="Nombre" onChange={handleChange} />
 
                 <label>Correo electrónico</label>
-                <Input name="email" type="email" placeholder="johan@gmail.com" onChange={handleChange} />
+                <Input name="email" type="email" placeholder="andres@gmail.com" onChange={handleChange} />
 
                 <label>Contraseña</label>
-                <Input name="password" type="password" placeholder="********" onChange={handleChange} />
+                <div className="password-field">
+                    <Input 
+                        name="password" 
+                        type={showPassword ? "text" : "password"} 
+                        placeholder="********" 
+                        onChange={handleChange} 
+                    />
+                    <span 
+                        className="toggle-password" 
+                        onClick={() => setShowPassword(!showPassword)}
+                    >
+                        {showPassword ? <FaEyeSlash/> : <FaEye/>}
+                    </span>
+                </div>
 
                 <Button text="Registrarse" />
             </form>
