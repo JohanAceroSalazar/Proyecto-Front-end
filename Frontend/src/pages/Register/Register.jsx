@@ -47,7 +47,9 @@ function Register() {
 
     return (
         <div className="register-container">
-            <div className="logo">ONE LANGUAGE</div>
+            <div className="logo">
+                ONE <br /> LANGUAGE
+            </div>
 
             <h1>Crea tu cuenta</h1>
 
