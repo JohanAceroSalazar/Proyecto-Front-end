@@ -1,63 +1,95 @@
+/* ===== RESET GENERAL ===== */
+body {
+    margin: 0; /* Quita márgenes por defecto */
+    font-family: Arial, sans-serif; /* Fuente */
+}
+
+/* ===== CONTENEDOR PRINCIPAL (PANTALLA AZUL) ===== */
 .register-container {
-    height: 100vh;
-    background: #3b78c2;
+    width: 380px; /* Ancho tipo celular */
+    height: 760px; /* Alto tipo celular */
+    background: #3A78C2; /* Color azul */
+    border-radius: 20px; /* Bordes redondeados */
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: Arial, sans-serif;
-    color: white;
+    flex-direction: column; /* Elementos en columna */
+    align-items: center; /* Centrado horizontal */
+    justify-content: center; /* Centrado vertical */
+    color: white; /* Texto blanco */
+    position: relative; /* Necesario para posicionar el logo */
 }
 
+/* ===== LOGO (ARRIBA IZQUIERDA) ===== */
 .logo {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-weight: bold;
-}
-
-h1 {
-    margin-bottom: 20px;
-}
-
-.form-card {
-    background: #e5e5e5;
-    padding: 25px;
-    border-radius: 15px;
-    width: 280px;
+    position: absolute; /* Posición libre dentro del contenedor */
+    top: 30px; /* Separación desde arriba */
+    left: 25px; /* Separación desde la izquierda */
+    font-weight: bold; /* Negrita */
+    font-size: 25px; /* Tamaño grande */
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    color: black;
+    flex-direction: column; /* Esto los pone uno debajo del otro */
+    line-height: 1.2; /* Espacio entre líneas */
 }
 
+/* ===== TÍTULO PRINCIPAL ===== */
+h1 {
+    margin-bottom: 50px; /* Espacio debajo */
+    font-size: 28px; /* Tamaño del texto */
+}
+
+/* ===== TARJETA DEL FORMULARIO ===== */
+.form-card {
+    text-align: left; /* Alineado a la izquierda con el input */
+    font-weight: bold; /* Negrita */
+    background: #ffffff; /* Gris claro */
+    padding: 25px; /* Espacio interno */
+    border-radius: 15px; /* Bordes redondeados */
+    width: 260px; /* Ancho del formulario */
+    display: flex;
+    flex-direction: column; /* Elementos en columna */
+    gap: 5px; /* Espacio entre inputs */
+    color: black; /* Texto negro */
+}
+
+/* ===== INPUTS ===== */
 .form-card input {
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #555;
-}
-
-.form-card button {
-    margin-top: 15px;
-    background: #f4dc2e;
-    border: none;
-    padding: 12px;
-    border-radius: 12px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.login-text {
-    margin-top: 15px;
+    color: #2c2929;
+    margin-bottom: 12px; /* 👈 Espacio entre cada grupo */
+    background: white; /* Fondo blanco en los inputs*/
+    padding: 10px; /* Espacio interno */
+    border-radius: 8px; /* Bordes redondeados */
+    border: 1px solid #000000; /* Borde negro */
     font-size: 14px;
+}
+
+/* ===== BOTÓN ===== */
+.form-card button {
+    margin-top: 15px; /* Espacio arriba */
+    background: #F4DC2E; /* Amarillo */
+    border: 2px solid black; /* Borde negro */
+    padding: 12px; /* Espacio interno */
+    border-radius: 12px; /* Bordes redondeados */
+    font-size: 24px; /* Texto grande */
+    font-weight: bold; /* Negrita */
+    color: #000000;
+    cursor: pointer; /* Cursor tipo mano */
+}
+
+/* ===== TEXTO INFERIOR ===== */
+.login-text {
+    margin-top: 50px; /* Espaciado entre la tarjeta de formulario */
+    font-size: 16px; /* Tamaño de letra */
+    text-align: center; /* Centrado */
 }
 
 .terms {
-    font-size: 13px;
+    margin-top: 10px;
+    font-size: 16px;
+    text-align: center; /* Centrado */
 }
 
+/* ===== MENSAJES (ERROR / ÉXITO) ===== */
 .message {
     margin-top: 10px;
     font-size: 14px;
+    text-align: center;
 }
