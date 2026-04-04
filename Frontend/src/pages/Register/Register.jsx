@@ -4,6 +4,7 @@ import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
 import { registerUser } from "../../services/authService";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function Register() {
     const [form, setForm] = useState({
@@ -79,7 +80,9 @@ function Register() {
                 <Button text="Registrarse" />
             </form>
 
-            <p className="login-text">Ya tienes una cuenta? Inicia sesión</p>
+            <p className="login-text">Ya tienes una cuenta? 
+                <Link to="/login"> Inicia sesión</Link>
+            </p>
             <p className="terms">Acepto los términos y condiciones</p>
 
             <p className="message">{message}</p>

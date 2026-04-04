@@ -1,16 +1,12 @@
-/* ===== RESET ===== */
 *, *::before, *::after {
   box-sizing: border-box;
 }
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
 
-/* ===== QUITAR SCROLL ===== */
 html, body {
+  margin: 0;
   overflow: hidden;
   height: 100%;
+  font-family: Arial, sans-serif;
 }
 
 /* ===== CONTENEDOR ===== */
@@ -37,7 +33,7 @@ html, body {
   line-height: 1.2;
 }
 
-/* ===== TÍTULO (solo una vez) ===== */
+/* ===== TÍTULO ===== */
 h1 {
   margin-bottom: 16px;
   font-size: clamp(20px, 4vw, 28px);
@@ -83,11 +79,16 @@ h1 {
   cursor: pointer;
 }
 
-/* ===== TEXTOS INFERIORES (solo una vez) ===== */
+/* ===== TEXTOS INFERIORES ===== */
 .login-text {
   margin-top: 12px;
   font-size: 15px;
   text-align: center;
+}
+.login-text a {
+  color: white;
+  font-weight: bold;
+  text-decoration: underline;
 }
 .terms {
   margin-top: 6px;
@@ -104,6 +105,13 @@ h1 {
 .password-field {
   position: relative;
   width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+}
+.password-field input {
+  flex: 1;
+  margin-bottom: 0;
 }
 .toggle-password {
   position: absolute;
@@ -114,4 +122,3 @@ h1 {
   font-size: 18px;
   color: #555;
 }
-
