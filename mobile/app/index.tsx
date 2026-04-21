@@ -1,5 +1,5 @@
-import Register from "./(auth)/register";
+import { Redirect } from "expo-router";
 
 export default function Index() {
-  return <Register />;
+  return <Redirect href="/(auth)/login" />;
 }
