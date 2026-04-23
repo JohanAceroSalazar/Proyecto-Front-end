@@ -11,13 +11,20 @@ import { useRouter } from "expo-router";
 
 export default function Register() {
   const router = useRouter();
+
   const [form, setForm] = useState({
     name: "",
     email: "",
     password: ""
   });
 
-  const [message, setMessage] = useState("");
+  // Estado de errores por campo
+  const [errors, setErrors] = useState({
+    name: false,
+    email: false,
+    password: false
+  });
+
   const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (field: string, value: string) => {
@@ -30,17 +37,28 @@ export default function Register() {
   const handleRegister = () => {
     const emailRegex = /\S+@\S+\.\S+/;
 
-    if (!form.name || !form.email || !form.password) {
-      setMessage("Todos los campos son obligatorios");
+    //Validación por campo
+    const newErrors = {
+      name: !form.name,
+      email: !form.email,
+      password: !form.password
+    };
+
+    setErrors(newErrors);
+
+    //si hay campos vacíos, no continúa
+    if (newErrors.name || newErrors.email || newErrors.password) {
+      setTimeout(() => 
+        setErrors({ name: false, email: false, password: false }), 3000);
       return;
     }
 
+    //Validación de email
     if (!emailRegex.test(form.email)) {
-      setMessage("Correo inválido");
+      setTimeout(() => 
+        setErrors({ name: false, email: false, password: false }), 3000);
       return;
     }
-
-    setMessage("Registro exitoso");
   };
 
   return (
@@ -52,23 +70,27 @@ export default function Register() {
       <View style={styles.card}>
         <Text>Nombre completo</Text>
         <TextInput
-          style={styles.input}
+          //estilo de error
+          style={[styles.input, errors.name && styles.inputError]}
           placeholder="Nombre"
           onChangeText={(text) => handleChange("name", text)}
         />
+        {/* ✅ mensaje debajo */}
+        {errors.name && <Text style={styles.errorText}>Este campo es obligatorio</Text>}
 
         <Text>Correo electrónico</Text>
         <TextInput
-          style={styles.input}
+          style={[styles.input, errors.email && styles.inputError]}
           placeholder="johan@gmail.com"
           onChangeText={(text) => handleChange("email", text)}
         />
+        {errors.email && <Text style={styles.errorText}>Este campo es obligatorio</Text>}
 
         <Text>Contraseña</Text>
 
         <View style={styles.passwordField}>
           <TextInput
-            style={styles.inputPassword}
+            style={[styles.inputPassword, errors.password && styles.inputError]}
             placeholder="********"
             secureTextEntry={!showPassword}
             onChangeText={(text) => handleChange("password", text)}
@@ -84,6 +106,7 @@ export default function Register() {
             />
           </TouchableOpacity>
         </View>
+        {errors.password && <Text style={styles.errorText}>Este campo es obligatorio</Text>}
 
         <TouchableOpacity style={styles.button} onPress={handleRegister}>
           <Text style={styles.buttonText}>Registrarse</Text>
@@ -99,9 +122,15 @@ export default function Register() {
           </Text>
           </TouchableOpacity>
 
-      <Text style={styles.terms}>Acepto los términos y condiciones</Text>
-
-      {!!message && <Text style={styles.message}>{message}</Text>}
+      <Text style={styles.terms}>
+        Acepto los{" "}
+        <Text
+          style={{ textDecorationLine: "underline", fontWeight: "bold" }}
+          onPress={() => router.push("/(auth)/terms")} // navegación
+        >
+          términos y condiciones
+        </Text>
+      </Text>
     </View>
   );
 }
@@ -203,5 +232,16 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "white",
     textAlign: "center",
+  },
+  inputError: {
+    borderColor: "red",
+    backgroundColor: "#ffcccc",
+  },
+  errorText: {
+    color: "red",
+    fontSize: 12,
+    marginBottom: 10,
+    marginTop: -20,
+    fontWeight: "bold",
   },
 });
