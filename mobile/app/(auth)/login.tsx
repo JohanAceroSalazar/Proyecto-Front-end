@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#3A78C2",
     alignItems: "center",
     justifyContent: "flex-start",
-    paddingTop: 70,
+    paddingTop: 100,
     paddingHorizontal: 24,
   },
   logo: {
@@ -112,8 +112,8 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   logoImg: {
-    width: 90,
-    height: 90,
+    width: 300,
+    height: 200,
     marginBottom: 24,
   },
   card: {
@@ -125,6 +125,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: "white",
     elevation: 6,
+    marginTop: 20,
   },
   label: {
     fontSize: 14,
