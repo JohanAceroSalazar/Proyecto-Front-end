@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaCheckSquare, FaRegSquare } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import "./Terms.css";
 
 function Terms() {
@@ -75,10 +74,8 @@ function Terms() {
             {accepted ? <FaCheckSquare /> : <FaRegSquare />}
             </span>
 
-            <p className="terms">
-                <Link to="/terms" className="terms-link">
+            <p className="checkboxText">
                     Acepto los términos y condiciones
-                </Link>
             </p>
         </div>
     </div>

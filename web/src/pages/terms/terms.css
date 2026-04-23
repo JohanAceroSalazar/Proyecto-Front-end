@@ -4,13 +4,8 @@
     color: black;
     height: 100vh;
     overflow-y: auto;
-}
-
-.checkbox-container {
-    display: flex;
     align-items: center;
-    margin-top: 30px;
-    gap: 10px;
+    text-align: center;
 }
 
 .checkbox-icon {
@@ -32,6 +27,7 @@
   gap: 10px; /* espacio entre checkbox y texto */
   margin-top: 40px;
   text-align: center;
+  justify-content: center;
 }
 
 .checkboxIcon {
@@ -40,6 +36,9 @@
 }
 
 .checkboxText {
+  position: relative;
   font-size: 14px;
   color: black;
+  margin: 0;
+  line-height: 1;
 }
