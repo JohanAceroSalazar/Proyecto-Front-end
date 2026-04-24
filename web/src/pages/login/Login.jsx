@@ -8,21 +8,44 @@ import logo from "../../assets/Logo.png";
 
 function Login() {
     const [form, setForm] = useState({ email: "", password: "" });
+
+    // errores por campo
+    const [errors, setErrors] = useState({
+        email: false,
+        password: false
+    });
+
     const [showPassword, setShowPassword] = useState(false);
-    const [message, setMessage] = useState("");
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
+    
+        // quitar error cuando el usuario escribe
+        setErrors({
+            ...errors,
+            [e.target.name]: false
+        });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!form.email || !form.password) {
-            setMessage("Todos los campos son obligatorios");
-            return;
-        }
-        // aquí conectas tu loginUser de authService
-    };
+
+    // validación por campo
+        const newErrors = {
+            email: !form.email,
+            password: !form.password
+        };
+
+        setErrors(newErrors);
+
+    // si hay errores, no continúa
+        if (newErrors.email || newErrors.password) {
+            setTimeout(() => {
+            setErrors({ email: false, password: false });
+        }, 3000);
+        return;
+    }
+};
 
     return (
         <div className="login-container">
@@ -37,7 +60,17 @@ function Login() {
             <div className="login-right">
                 <form className="login-card" onSubmit={handleSubmit}>
                     <label>Correo electrónico</label>
-                    <Input name="email" type="email" placeholder="andres@gmail.com" onChange={handleChange} />
+                    <Input 
+                    name="email" 
+                    type="email" 
+                    placeholder="andres@gmail.com" 
+                    onChange={handleChange} 
+                    error={errors.email}
+                    />
+
+                    {errors.email && (
+                        <p className="error-text">Este campo es obligatorio</p>
+                    )}
 
                     <label>Contraseña</label>
                     <div className="password-field">
@@ -46,11 +79,18 @@ function Login() {
                             type={showPassword ? "text" : "password"}
                             placeholder="********"
                             onChange={handleChange}
+                            error={errors.password}
                         />
-                        <span className="toggle-password" onClick={() => setShowPassword(!showPassword)}>
+                        <span className="toggle-password" 
+                        onClick={() => setShowPassword(!showPassword)}
+                        >
                             {showPassword ? <FaEyeSlash /> : <FaEye />}
                         </span>
                     </div>
+
+                    {errors.password && (
+                        <p className="error-text">Este campo es obligatorio</p>
+                    )}
 
                     <Button text="Iniciar sesión" />
                 </form>
@@ -59,10 +99,7 @@ function Login() {
                 <p className="register-text">
                     ¿No tienes una cuenta? <Link to="/register">Regístrate</Link>
                 </p>
-
-                {message && <p className="message">{message}</p>}
             </div>
-
         </div>
     );
 }
