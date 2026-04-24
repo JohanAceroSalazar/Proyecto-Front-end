@@ -66,6 +66,10 @@ function Terms() {
             className="checkboxIcon"
             onClick={() => {
                 setAccepted(true);
+
+                // guardar que aceptó los terminos
+                localStorage.setItem("acceptedTerms", "true");
+
                 setTimeout(() => {
                 navigate("/register"); // vuelve
                 }, 300);

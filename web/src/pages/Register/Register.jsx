@@ -22,6 +22,15 @@ function Register() {
 
     const [message, setMessage] = useState("");
     const [showPassword, setShowPassword] = useState(false);
+    const [accepted, setAccepted] = useState(false);// estado para términos
+
+    //leer si ya aceptó términos
+    useEffect(() => {
+        const acceptedTerms = localStorage.getItem("acceptedTerms");
+        if (acceptedTerms === "true") {
+            setAccepted(true);
+        }
+    }, []);
 
     const handleChange = (e) => {
         setForm({
@@ -60,9 +69,15 @@ function Register() {
 
     // validación email
     if (!emailRegex.test(form.email)) {
-        setErrors({ ...newErrors, email: true }); // 👈 marca email
+        setErrors({ ...newErrors, email: true }); // marca email
     return;
     }
+
+    // bloquear si no acepta términos
+    if (!accepted) {
+        setMessage("Debes aceptar los términos y condiciones");
+    return;
+        }
 
     try {
         await registerUser(form);
