@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 import Register from "../pages/Register/Register";
 import Login from "../pages/login/Login";
 import Terms from "../pages/terms/terms";
+import Home from "../pages/home/Home";
 
 function AppRoutes() {
     return (
@@ -11,6 +12,7 @@ function AppRoutes() {
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/terms" element={<Terms />} />
+            <Route path="/home" element={<Home />} />
         </Routes>
     </BrowserRouter>
     );
