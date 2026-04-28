@@ -1,0 +1,174 @@
+.home-container {
+    width: 100%;
+    height: 100vh;
+    background: #3A78C2;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 24px;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.home-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.home-logo span {
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    line-height: 1.2;
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    color: #F4DC2E;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    letter-spacing: 1px;
+}
+
+.menu-wrapper {
+    position: relative;
+}
+
+.menu-dropdown {
+    position: absolute;
+    top: 36px;
+    right: 0;
+    background: #1a1a1a;
+    border-radius: 10px;
+    padding: 16px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    z-index: 100;
+    min-width: 200px;
+}
+
+.menu-dropdown p {
+    color: #F4DC2E;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    min-width: 220px;
+}
+
+.menu-dropdown p:hover {
+    opacity: 0.8;
+}
+
+.home-greeting {
+    color: white;
+    font-size: 30px;
+    margin-top: 12px;
+    margin-left: 4px;
+}
+
+/* TARJETA */
+.home-card {
+    background: white;
+    border-radius: 15px;
+    padding: 40px 36px;
+    margin-top: 16px;
+    margin-bottom: 24px;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-self: center;
+}
+
+.home-card h1 {
+    font-size: clamp(22px, 3vw, 36px);
+    font-weight: bold;
+    text-align: center;
+    color: black;
+}
+
+.home-card p {
+    font-size: clamp(14px, 1.5vw, 18px);
+    color: black;
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+.menu-dropdown {
+    position: absolute;
+    top: 36px;
+    right: 0;
+    background: #1a1a1a;
+    border-radius: 10px;
+    padding: 16px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    z-index: 100;
+    min-width: 200px;
+    transform-origin: top right;
+    animation: openMenu 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.menu-dropdown.closing {
+    animation: closeMenu 0.25s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+@keyframes openMenu {
+    from {
+        opacity: 0;
+        transform: scale(0.85) translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes closeMenu {
+    from {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.85) translateY(-8px);
+    }
+}
+
+/* Triángulo animado */
+.menu-arrow {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.menu-arrow.open {
+    transform: rotate(180deg);
+}
+
+/* BOTÓN */
+.home-btn {
+    width: 100%;
+    padding: 14px;
+    background: #F4DC2E;
+    border: 2px solid black;
+    border-radius: 12px;
+    font-size: clamp(16px, 2vw, 20px);
+    font-weight: bold;
+    cursor: pointer;
+    color: black;
+}
+
+.home-btn:hover {
+    opacity: 0.9;
+}

@@ -68,9 +68,7 @@ function Login() {
                     error={errors.email}
                     />
 
-                    {errors.email && (
-                        <p className="error-text">Este campo es obligatorio</p>
-                    )}
+                    <p className="error-text">{errors.email ? "Este campo es obligatorio" : ""}</p>
 
                     <label>Contraseña</label>
                     <div className="password-field">
@@ -88,9 +86,7 @@ function Login() {
                         </span>
                     </div>
 
-                    {errors.password && (
-                        <p className="error-text">Este campo es obligatorio</p>
-                    )}
+                    <p className="error-text">{errors.password ? "Este campo es obligatorio" : ""}</p>
 
                     <Button text="Iniciar sesión" />
                 </form>
