@@ -5,6 +5,7 @@ import Button from "../../components/Button/Button";
 import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import logo from "../../assets/Logo.png";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
     const [form, setForm] = useState({ email: "", password: "" });
@@ -46,6 +47,8 @@ function Login() {
         return;
     }
 };
+
+        const navigate = useNavigate();
 
     return (
         <div className="login-container">
@@ -91,7 +94,9 @@ function Login() {
                     <Button text="Iniciar sesión" />
                 </form>
 
-                <p className="recover-text">Restablecer contraseña</p>
+                <p className="recover-text" onClick={() => navigate("/recoverpassword")}>
+                   Restablecer contraseña
+                </p>
                 <p className="register-text">
                     ¿No tienes una cuenta? <Link to="/register">Regístrate</Link>
                 </p>
