@@ -1,44 +1,58 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
 .terms-container {
-    padding: 40px;
+    padding: 40px 80px;
     background: white;
     color: black;
-    height: 100vh;
-    overflow-y: auto;
-    align-items: center;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.title {
     text-align: center;
+    color: #999;
+    margin-bottom: 24px;
+    font-size: 28px;
 }
 
-.checkbox-icon {
-    font-size: 22px;
-    cursor: pointer;
+.section {
+    margin-top: 20px;
 }
 
-.terms-link {
-    text-decoration: underline; /*línea abajo */
-    color: white; /* o el color que uses */
+.subtitle {
+    font-size: 16px;
     font-weight: bold;
-    cursor: pointer;
+    color: black;
+    margin-bottom: 6px;
+}
+
+.paragraph {
+    font-size: 14px;
+    color: black;
+    line-height: 1.6;
+    margin-bottom: 8px;
 }
 
 .checkboxContainer {
-  display: flex;
-  justify-content: center; /* 🔥 centra todo horizontal */
-  align-items: center;
-  gap: 10px; /* espacio entre checkbox y texto */
-  margin-top: 40px;
-  text-align: center;
-  justify-content: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-top: 24px;
+    margin-bottom: 40px;
+    justify-content: flex-start;
+    margin-left: 0;
+    padding-left: 0;
 }
 
 .checkboxIcon {
-  font-size: 22px;
-  cursor: pointer;
+    font-size: 22px;
+    cursor: pointer;
+    color: black;
 }
 
 .checkboxText {
-  position: relative;
-  font-size: 14px;
-  color: black;
-  margin: 0;
-  line-height: 1;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
 }
