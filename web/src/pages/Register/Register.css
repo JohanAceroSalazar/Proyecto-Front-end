@@ -136,3 +136,23 @@ h1 {
   border: 1px solid red;
   transition: 0.3s;
 }
+
+.login-text a {
+    color: white;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.terms-link {
+    color: white;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.terms {
+    color: white;
+}
+
+.login-text {
+    color: white;
+}
