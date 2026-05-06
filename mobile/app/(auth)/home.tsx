@@ -1,4 +1,4 @@
-import { Ionicons } from "@expo/vector-icons";
+import { BottomNav } from "../../components/bottom-nav";
 import {
     Image,
     SafeAreaView,
@@ -38,15 +38,7 @@ export default function Home() {
         </TouchableOpacity>
         </View>
 
-        <View style={styles.tabBar}>
-            <View style={styles.activeTab}>
-            <Ionicons name="home-outline" size={32} color="#FFEB3B" />
-        </View>
-            <Ionicons name="camera-outline" size={32} color="#FFEB3B" />
-            <Ionicons name="document-text-outline" size={32} color="#FFEB3B" />
-            <Ionicons name="accessibility-outline" size={34} color="#FFEB3B" />
-            <Ionicons name="person-circle-outline" size={34} color="#FFEB3B" />
-        </View>
+        <BottomNav active="home" />
     </SafeAreaView>
     );
 }
@@ -72,15 +64,15 @@ cameraDot: {
     },
 logo: {
     fontSize: 20,
-    fontWeight: "normal",
+    fontWeight: "bold",
     lineHeight: 22,
     color: "#FFFFFF",
-    marginLeft: 16,
+    marginLeft: 8,
     },
 header: {
     width: "100%",
     marginTop: 36,
-    paddingHorizontal: 14,
+    paddingHorizontal: 8,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
@@ -148,30 +140,5 @@ buttonText: {
     lineHeight: 30,
     fontWeight: "600",
     textAlign: "center",
-    },
-tabBar: {
-    position: "absolute",
-    left: 0,
-    right: 0,
-    bottom: 0,
-    height: 70,
-    paddingHorizontal: 26,
-    backgroundColor: "#1D1B3D",
-    borderTopLeftRadius: 18,
-    borderTopRightRadius: 18,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    },
-activeTab: {
-    width: 58,
-    height: 58,
-    borderRadius: 29,
-    borderWidth: 4,
-    borderColor: "#FFEB3B",
-    backgroundColor: "#1D1B3D",
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: -24,
     },
 });
