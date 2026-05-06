@@ -74,7 +74,9 @@ export default function Login() {
         </TouchableOpacity>
       </View>
 
-      <Text style={styles.link}>Restablecer contraseña</Text>
+      <TouchableOpacity onPress={() => router.push("/(auth)/recover_password")}>
+        <Text style={styles.link}>Restablecer contraseña</Text>
+      </TouchableOpacity>
 
       <Text style={styles.registerText}>
         ¿No tienes una cuenta?{" "}
